@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Header>
+        <Title>Focus Fuzz</Title>
+        <Tagline>Drown Out Distractions</Tagline>
+      </Header>
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  margin: 0 auto;
+  text-align: center;
+  height: 100vh;
+  background: #DDC;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const Header = styled.div`
+  padding: 30px 0;
+`;
+
+const Title = styled.h1`
+  font-size: 60px;
+`;
+
+const Tagline = styled.span`
+  font-style: italic;
+  letter-spacing: 2px;
+`;
