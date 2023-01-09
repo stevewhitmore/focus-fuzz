@@ -1,67 +1,49 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { SoundFileModel } from '../models/sound-file.model';
 import SoundFile from './SoundFile';
 
-type SoundWrapperProps = {};
-type SoundWrapperState = {
-    isFetching: boolean,
-    sounds: SoundFileModel[],
-};
+const SoundWrapper = () => {
+    const [isFetching, setIsFetching] = useState<boolean>(false);
+    const [sounds, setSounds] = useState<SoundFileModel[]>([]);
 
-
-class SoundWrapper extends React.Component<SoundWrapperProps, SoundWrapperState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            isFetching: false,
-            sounds: []
-        };
-    }
-
-    componentDidMount() {
-        this.getSoundData();
-    }
-
-    getSoundData () {
-        this.setState({...this.state, isFetching: true});
-
+    useEffect(() => {
+        setIsFetching(true);
         // faking the api call for now...
         fetch('./sound-list.json')
             .then((response) => response.json())
             .then((responseJson) => {
-                this.setState({
-                    ...this.state,
-                    sounds: responseJson,
-                    isFetching: false,
-                })
+                setSounds(responseJson);
+                setIsFetching(false);
             })
             .catch((e) => {
                 console.error(e);
-                this.setState({...this.state, isFetching: false});
+                setIsFetching(false);
             });
-     }
+    }, []);
 
-    render() {
-        return (
-            <div>
-                <PlayButton>
-                    <PlayIcon className="material-symbols-outlined">
-                        play_arrow
-                    </PlayIcon>
-                </PlayButton>
-                <SoundContainer>
-                    {
-                        this.state.sounds.map(sound => <SoundFile key={sound.id}
-                                                                    id={sound.id}
-                                                                    name={sound.name}
-                                                                    icon={sound.icon}
-                                                                    source={sound.source}></SoundFile>)
-                    }
-                </SoundContainer>
-            </div>
-        );
-    }
+    const soundFileList = sounds.map((sound) => (
+        <SoundFile 
+            key={sound.id}
+            id={sound.id}
+            name={sound.name}
+            icon={sound.icon}
+            source={sound.source} 
+        />
+    ));
+
+    return (
+        <div>
+            <PlayButton>
+            <PlayIcon className="material-symbols-outlined">
+                play_arrow
+            </PlayIcon>
+            </PlayButton>
+            <SoundContainer>
+                { isFetching ? <h2>Loading...</h2> : soundFileList }
+            </SoundContainer>
+        </div>
+    );
 }
 
 export default SoundWrapper;
