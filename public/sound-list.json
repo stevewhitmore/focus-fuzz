@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "thunderstorm",
+        "icon": "thunderstorm",
+        "source": "some endpoint"
+    },
+    {
+        "id": 2,
+        "name": "waves",
+        "icon": "waves",
+        "source": "some endpoint"
+    },
+    {
+        "id": 3,
+        "name": "pink noise",
+        "icon": "bed",
+        "source": "some endpoint"
+    }
+]

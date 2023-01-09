@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import SoundWrapper from "./components/SoundWrapper";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
         <Title>Focus Fuzz</Title>
         <Tagline>Drown Out Distractions</Tagline>
       </Header>
+      <SoundWrapper></SoundWrapper>
     </AppContainer>
   );
 }
