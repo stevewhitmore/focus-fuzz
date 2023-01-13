@@ -3,12 +3,14 @@ import { SoundFileModel } from '../models/sound-file.model';
 
 
 const SoundFile = ( soundFile: SoundFileModel ) => {
+    const htmlId = soundFile.name.replaceAll(' ', '-').toLowerCase();
+
     return (
-        <SoundControl id={soundFile.name}>
+        <SoundControl id={htmlId}>
             <span className="material-symbols-outlined">
             { soundFile.icon }
             </span>
-            <label>{soundFile.name}</label>
+            <SoundLabel>{soundFile.name}</SoundLabel>
             <input type="range"></input>
         </SoundControl>
     );
@@ -20,4 +22,8 @@ const SoundControl = styled.div`
     display: flex;
     flex-direction: column;
     max-width: 200px;
+`;
+
+const SoundLabel = styled.span`
+    padding: 0.5rem 0;
 `;
