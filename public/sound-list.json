@@ -1,20 +1,26 @@
 [
     {
         "id": 1,
-        "name": "thunderstorm",
+        "name": "Thunderstorm",
         "icon": "thunderstorm",
         "source": "some endpoint"
     },
     {
         "id": 2,
-        "name": "waves",
+        "name": "Waves",
         "icon": "waves",
         "source": "some endpoint"
     },
     {
         "id": 3,
-        "name": "pink noise",
+        "name": "Pink Noise",
         "icon": "bed",
+        "source": "some endpoint"
+    },
+    {
+        "id": 4,
+        "name": "Fireplace",
+        "icon": "fireplace",
         "source": "some endpoint"
     }
 ]
