@@ -65,9 +65,15 @@ const PlayIcon = styled.span`
 
 const SoundContainer = styled.div`
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px;
     justify-items: center;
     column-gap: 5rem;
     row-gap: 5rem;
     justify-content: center;
+    @media (max-width: 1020px) {
+        grid-template-columns: 200px 200px;
+    }
+    @media (max-width: 480px) {
+        grid-template-columns: 200px;
+    }
 `;
