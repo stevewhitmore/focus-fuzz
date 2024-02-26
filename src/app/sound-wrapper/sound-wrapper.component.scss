@@ -1,0 +1,11 @@
+div {  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+
+  h2, p {
+    color: #fff;
+  }
+}

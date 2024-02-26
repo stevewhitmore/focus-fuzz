@@ -1,0 +1,19 @@
+<section class="play-stop">
+  <button *ngIf="playStatus.isPaused; else pauseButton"
+          class="material-symbols-outlined"
+          type="button"
+          (click)="playPause()">
+          play_arrow
+  </button>
+  <ng-template #pauseButton>
+      <button class="material-symbols-outlined" type="button" (click)="playPause()">
+          square
+      </button>
+  </ng-template>
+</section>
+
+<section class="sound-list">
+  <div *ngFor="let file of audioFiles$ | async">
+      <ff-sound-wrapper [audioFile]="file" [playStatus]="playStatus"></ff-sound-wrapper>
+  </div>
+</section>
